@@ -8,6 +8,7 @@
 
 .the-cart{
   grid-column: span 2;
+  overflow-y: auto;
 }
 
 .the-products{
