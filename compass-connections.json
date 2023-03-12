@@ -1,0 +1,22 @@
+{
+  "type": "Compass Connections",
+  "version": {
+    "$numberInt": "1"
+  },
+  "connections": [
+    {
+      "id": "4a820f27-6315-45f7-8096-be997a7f131f",
+      "connectionOptions": {
+        "connectionString": "mongodb+srv://eliran:1q2w3e4r@cluster0.ubm777d.mongodb.net/test"
+      },
+      "lastUsed": {
+        "$date": {
+          "$numberLong": "1678656807217"
+        }
+      },
+      "favorite": {
+        "name": "Shopping"
+      }
+    }
+  ]
+}
