@@ -1,0 +1,44 @@
+.the-admin{
+  height: 100%;
+}
+.the-header{
+  font-size: 22px;
+  margin-right: 10px;
+}
+
+.box {
+  text-align: left;
+  margin:auto;
+  padding: 10px;
+}
+
+.add-prod{
+  grid-column: span 6;
+  margin: auto;
+  width: 90%;
+  margin-top: 10px;
+}
+
+.work-body{
+  grid-column: span 6;
+  margin: auto;
+  text-align: left;
+  width: 90%;
+}
+
+.add-prod > form{
+  text-align: left;
+}
+
+
+select{
+  margin-bottom: 10px;
+}
+
+input{
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+

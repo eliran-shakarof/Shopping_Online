@@ -1,0 +1,41 @@
+.login-layout{
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: repeat(6,1fr);
+}
+
+.my-photo, .my-statics{
+  grid-column: span 2;
+  margin: 90px auto;
+}
+
+.my-login{
+  grid-column: span 2;
+  margin: 90px;
+}
+
+.box {
+  padding: 10px;
+
+}
+
+input{
+  width: 100%;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+.mat-icon{
+
+}
+
+.my-photo > img{
+  width: 400px;
+  height: 300px;
+  border-radius: 10px;
+}
+

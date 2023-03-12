@@ -1,0 +1,13 @@
+<div class="my-products">
+  <div class="the-categories">
+    <app-categories></app-categories>
+  </div>
+  <div class="search-product">
+    <div>
+      <input class="form-control" #productSearch (input)="onValueChange(productSearch.value)" placeholder="Search Product..." type="search" >
+    </div>
+  </div>
+  <div class="the-products">
+      <app-product-card *ngFor="let p of filteredProducts$ | async" [product]="p"></app-product-card>
+  </div>
+</div>

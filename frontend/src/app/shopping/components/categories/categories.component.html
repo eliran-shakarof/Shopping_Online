@@ -1,0 +1,13 @@
+<div class="my-categories">
+  <nav mat-tab-nav-bar [tabPanel]="tabPanel">
+    <a mat-tab-link
+       (click)="allProducts()"
+       [active]="isAllActive">All </a>
+
+    <a mat-tab-link *ngFor="let item of categories | async"
+       (click)="categoryChoose(item._id)"
+       [active]="item._id === selectedCategoryId"> {{item.name}} </a>
+  </nav>
+  <mat-tab-nav-panel #tabPanel></mat-tab-nav-panel>
+</div>
+

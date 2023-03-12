@@ -1,0 +1,12 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row class="toolbar-row">
+      <span class="left">
+        <img [src]="imgSource" alt="photo">
+        <span>Shopping Online</span>
+      </span>
+      <span class="right" *ngIf="haveAccount === true">
+        Hello {{user.first_name}} &nbsp;
+        <button mat-button (click)="logout()">Logout</button>
+      </span>
+  </mat-toolbar-row>
+</mat-toolbar>

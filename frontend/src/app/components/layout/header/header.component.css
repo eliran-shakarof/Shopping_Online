@@ -1,0 +1,19 @@
+.toolbar-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+}
+
+img{
+  width: 100px
+}
+

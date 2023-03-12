@@ -1,0 +1,13 @@
+<div class="my-home">
+
+  <div *ngIf="user?.role === 1" class="the-cart">
+    <app-admin-page></app-admin-page>
+  </div>
+  <div *ngIf="user?.role === 2" class="the-cart">
+    <app-cart></app-cart>
+  </div>
+  <div class="the-products">
+    <app-products></app-products>
+  </div>
+  
+</div>

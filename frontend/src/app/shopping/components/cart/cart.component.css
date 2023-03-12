@@ -1,0 +1,32 @@
+.the-cart{
+  height: 100%;
+  display: grid;
+  grid-template-rows: 5% 85% 10%;
+  grid-template-columns: repeat(6,1fr);
+}
+
+.cart-title{
+  position: sticky;
+  grid-column: span 6;
+
+}
+
+.cart-body{
+  grid-column: span 6;
+  overflow: auto;
+}
+
+.cart-conclustion{
+  border-top: 2px solid;
+  grid-column: span 6;
+
+}
+
+.cart-body > p {
+    width: 90%;
+    margin: 10px auto;
+}
+
+.cart-conclustion > div{
+  margin-top: 5px;
+}

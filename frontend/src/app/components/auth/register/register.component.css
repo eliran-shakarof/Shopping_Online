@@ -1,0 +1,22 @@
+.box {
+  width:300px;
+  height: 500px;
+  text-align: left;
+  margin:50px auto;
+  padding: 10px;
+  overflow: auto;
+}
+
+.personal-info{
+  text-align: left;
+}
+
+input{
+  width: 100%;
+  box-sizing: border-box;
+  display: inline-block;
+}
+
+h2{
+  text-align: center;
+}

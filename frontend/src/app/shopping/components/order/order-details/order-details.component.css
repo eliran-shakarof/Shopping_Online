@@ -1,0 +1,25 @@
+.order-title{
+  text-align: left;
+  width: 60%;
+  margin: 20px auto;
+
+}
+
+.order-body{
+  width: 55%;
+  margin: 20px auto;
+}
+
+.box {
+  text-align: left;
+  margin:auto;
+  padding: 10px;
+  width: 50%;
+}
+
+input{
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+}
+

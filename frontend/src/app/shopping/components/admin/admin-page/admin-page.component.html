@@ -1,0 +1,69 @@
+<div class="the-admin">
+    <div class="add-prod">
+      <span class="the-header">For Add A New Product</span>
+      <button mat-mini-fab color="primary" (click)="selectAdding()">
+        <mat-icon>add</mat-icon>
+      </button>
+
+       <div *ngIf="selected === true" class="box">
+          <form (ngSubmit)="addProduct()" ngNativeValidate>
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Enter a name" [(ngModel)]="addingProduct.name" required>
+            </div>
+
+            <div class="form-group">
+              <select name="categoryId" class="form-control" [(ngModel)]="addingProduct.categoryId" required>
+                <option value="" disabled selected>Choose Category</option>
+                <option *ngFor="let item of categories | async" [value]="item._id">
+                  {{item.name}}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <input type="number" class="form-control" placeholder="Enter a price" name="price" [(ngModel)]="addingProduct.price" required min="1">
+            </div>
+
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Enter a image url" name="image" [(ngModel)]="addingProduct.image" required>
+            </div>
+            <button mat-flat-button color="primary">Add</button>
+          </form>
+       </div>
+    </div>
+    <hr/>
+
+    <div *ngIf="prodEdit | async as product" class="work-body box">
+      <span class="the-header">Edit Your Product</span>
+      <form [formGroup]="editForm" (ngSubmit)="saveProductChanges()" ngNativeValidate>
+         <div class="form-group">
+          <label>Name:</label>
+          <input  type="text" class="form-control" name="name" formControlName="name" required>
+         </div>
+
+         <div class="form-group">
+          <label>Category: </label>
+          <select name="categoryId" formControlName="categoryId" class="form-control" required>
+            <option *ngFor="let item of categories | async" [value]="item._id">
+              {{item.name}}
+            </option>
+          </select>
+        </div>
+        
+        <div class="form-group">
+          <label>Price: </label>
+          <input type="number" name="price" formControlName="price" class="form-control" required min="1">
+        </div>
+
+        <div class="form-group">
+          <label>Image:</label>
+          <input type="text" name="image" formControlName="image" class="form-control" required>
+        </div>
+          <button mat-flat-button color="primary">Save</button>
+      </form>
+    </div>
+</div>
+
+
+
+

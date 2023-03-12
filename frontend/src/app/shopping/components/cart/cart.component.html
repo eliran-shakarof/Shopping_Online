@@ -1,0 +1,20 @@
+<div class="the-cart">
+  <div class="cart-title">
+    My Cart
+  </div>
+  <div class="cart-body">
+    <p class="d-flex justify-content-between">
+      Items in Cart
+      <button mat-mini-fab color="primary" (click)="clearCart()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </p>
+    <app-cart-item-card *ngFor="let item of currCartItems$ | async" [fromCart]="fromCart" [item]="item"></app-cart-item-card>
+  </div>
+  <div class="cart-conclustion">
+    <div>
+      Total Price: {{totalPrice$ | async}}₪
+      <button mat-flat-button color="primary" (click)="order()" [disabled]="(totalPrice$ | async) === 0">Order</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+<!-- FOR USER -->
+<div *ngIf="user.role === 2" class="card" (click)="chooseProduct()">
+  <div class="card-info">
+    <div class="the-product">
+      {{product.name}} <br>
+      Price: {{product.price}}₪<br>
+    </div>
+  </div>
+  <hr/>
+  <div>
+     <img [src]="imageSource">
+  </div>
+</div>
+
+<!-- FOR ADMIN -->
+<div *ngIf="user.role === 1" class="card" (click)="editProduct()">
+  <div class="card-info">
+    <div class="the-product">
+      {{product.name}} <br>
+      Price: {{product.price}}₪<br>
+    </div>
+  </div>
+  <hr/>
+  <div>
+     <img [src]="imageSource">
+  </div>
+</div>

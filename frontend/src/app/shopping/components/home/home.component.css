@@ -1,0 +1,18 @@
+.my-home{
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: repeat(8,1fr);
+  border: 2px solid;
+}
+
+.the-cart{
+  grid-column: span 2;
+}
+
+.the-products{
+  grid-column: span 6;
+  overflow-y: auto;
+  border-left: 2px solid;
+}
+

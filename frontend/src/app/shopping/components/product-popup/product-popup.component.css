@@ -1,0 +1,31 @@
+img{
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+}
+
+.the-product{
+  text-align: left;
+  display: inline;
+
+}
+
+.qty > input{
+  width: 20%;
+  margin-top: 15px;
+  text-align: center;
+}
+
+.qty > button{
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+
+.icon-size {
+  font-size: 10px;
+  height:10px;
+  width: 10px;
+  transform: scale(2);
+}
+

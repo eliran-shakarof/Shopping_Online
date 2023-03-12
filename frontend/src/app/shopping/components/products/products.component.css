@@ -1,0 +1,31 @@
+.my-products{
+  height: 100%;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: 10% 5% 85%;
+  grid-template-columns: repeat(6,1fr);
+}
+
+.the-categories{
+  position: sticky;
+  grid-column: span 6;
+
+}
+
+.search-product{
+  grid-column: span 6;
+  width: 95%;
+  margin:auto;
+}
+
+.search-product > div{
+  float: left;
+  margin-top: 20px;
+}
+
+.the-products{
+  margin-top: 20px;
+  grid-column: span 6;
+  overflow-y: auto;
+}
+

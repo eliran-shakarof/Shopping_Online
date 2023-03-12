@@ -1,0 +1,19 @@
+.the-order{
+  margin: auto;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  border: 1px solid;
+  
+}
+
+.items{
+  grid-column: span 2;
+}
+
+.order-info{
+  border-left: 1px solid;
+  grid-column: span 4;
+  text-align: left;
+}
+

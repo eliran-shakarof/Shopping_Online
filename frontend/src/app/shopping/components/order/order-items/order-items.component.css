@@ -1,0 +1,38 @@
+.items-layout{
+  height: 100%;
+  display: grid;
+  box-sizing: border-box;
+  grid-template-rows: 10% 10% 70% 10%;
+  grid-template-columns: repeat(6,1fr);
+}
+
+.my-search{
+  grid-column: span 6;
+  width: 50%;
+  margin:auto;
+}
+
+.items-title{
+  grid-column: span 6;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 15px;
+}
+
+.items-body{
+  grid-column: span 6;
+  overflow-y: auto;
+}
+
+.items-footer{
+  grid-column: span 6;
+
+}
+
+.footer-size{
+  font-size: 22px;
+}
+
+.title-header-size{
+  font-size: 26px;
+}

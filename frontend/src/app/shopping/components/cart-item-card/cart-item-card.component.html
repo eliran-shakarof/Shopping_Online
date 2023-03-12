@@ -1,0 +1,12 @@
+<div class="item">
+  <div class="item-body">
+    <button mat-mini-fab color="primary" *ngIf="fromCart" (click)="remove()">
+      <mat-icon class="icon-size">clear</mat-icon>
+    </button>&nbsp;&nbsp;
+    <span><img [src]="item.productId?.image"></span>
+    <span [ngClass]="{'highlight': productSearchTerm && item.productId.name.toLowerCase().includes(productSearchTerm)}">{{item.productId?.name}},</span>
+    <span>Amount: {{item.quantity}},</span>
+    <span>Price {{item.totalPrice}}₪</span>
+    <hr/><br/>
+  </div>
+</div>

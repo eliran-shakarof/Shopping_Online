@@ -1,0 +1,48 @@
+<div class="order-title">
+  <h3>Order</h3>
+  <hr>
+</div>
+<div class="order-body">
+  <h3>Shipping Details</h3>
+  <hr>
+  <div class="box form-group">
+    <form [formGroup]="infoForm" (ngSubmit)="onSubmit()" ngNativeValidate>
+      <div class="dropdown">
+        <label>City:</label>
+        <input #userCity (input)="onValueChange(userCity.value)" (dblclick)="fillCityValue(userCity)" type="search" placeholder="Type on hebrew" class="form-control dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" formControlName="city" >
+        <ul class="dropdown-menu" [ngClass]="(cities && isCityDirty) ? 'show': '' ">
+          <li class="dropdown-item" *ngFor="let city of cities" (click)="chooseCity(city)">{{city}}</li>
+        </ul>
+        <div class="alert alert-danger small" *ngIf="infoForm.get('city')?.invalid && (infoForm.get('city')?.dirty || infoForm.get('city')?.touched)">
+          <div *ngIf="infoForm.get('city')?.errors?.['required']">City is required.</div>
+          <div *ngIf="infoForm.get('city')?.errors?.['minlength']">City must be at least 2 characters long.</div>
+          <div *ngIf="infoForm.get('city')?.errors?.['notExist']">City not exists.</div>
+        </div>
+      </div>
+
+      <label>Street: </label>
+      <input #userStreet type="text" name="street" class="form-control" (dblclick)="fillStreetValue(userStreet)" formControlName="street">
+      <div class="alert alert-danger small" *ngIf="infoForm.get('street')?.invalid && (infoForm.get('street')?.dirty || infoForm.get('street')?.touched)">
+        <div *ngIf="infoForm.get('street')?.errors?.['required']">Street is required.</div>
+        <div *ngIf="infoForm.get('street')?.errors?.['minlength']">Street must be at least 2 characters long.</div>
+      </div>
+
+      <label>Shipping Date:</label>
+      <input type="Date" name="date-time" [min]="minDate" class="form-control" formControlName="deliveryDate" >
+      <div class="alert alert-danger small" *ngIf="infoForm.get('deliveryDate')?.invalid && (infoForm.get('deliveryDate')?.dirty || infoForm.get('deliveryDate')?.touched)">
+        <div *ngIf="infoForm.get('deliveryDate')?.errors?.['required']">Delivery date is required.</div>
+        <div *ngIf="infoForm.get('deliveryDate')?.errors?.['exist']">This Date is fully.</div>
+      </div>
+
+      <label>Credit Card: </label>
+      <input type="text" name="credit-card" class="form-control" formControlName="creditCard" >
+      <div class="alert alert-danger small" *ngIf="infoForm.get('creditCard')?.invalid && (infoForm.get('creditCard')?.dirty || infoForm.get('creditCard')?.touched)">
+        <div *ngIf="infoForm.get('creditCard')?.errors?.['required']">Credit card is required.</div>
+        <div *ngIf="infoForm.get('creditCard')?.errors?.['minlength']">Credit card must be 4 digits.</div>
+        <div *ngIf="infoForm.get('creditCard')?.errors?.['maxlength']">Credit card must be 4 digits.</div>
+      </div><br/>
+      <button mat-flat-button color="primary">Make Order</button>
+    </form>
+ </div>
+</div>
+

@@ -1,0 +1,95 @@
+<div>
+  <h1>Register</h1>
+  <div class="box">
+    <div *ngIf="step === 1">
+      <h2>Step 1</h2>
+      <hr/>
+      <form [formGroup]="registerForm1" (ngSubmit)="onSubmit(1)">
+
+        <div class="form-group">
+          <label>Identity Card:</label>
+          <input type="text" id="identity_card" class="form-control" formControlName="identity_card">
+          <div class="alert alert-danger small" *ngIf="registerForm1.get('identity_card')?.invalid && (registerForm1.get('identity_card')?.dirty || registerForm1.get('identity_card')?.touched)">
+            <div *ngIf="registerForm1.get('identity_card')?.errors?.['required']">Identity card is required.</div>
+            <div *ngIf="registerForm1.get('identity_card')?.errors?.['minlength']">Identity card must be at least 8 characters long.</div>
+            <div *ngIf="registerForm1.get('identity_card')?.errors?.['maxlength']">Identity card must be less than 9 characters long.</div>
+          </div>
+
+          <label>Email:</label>
+          <input type="email" class="form-control" formControlName="email">
+          <div class="alert alert-danger small" *ngIf="registerForm1.get('email')?.invalid && (registerForm1.get('email')?.dirty || registerForm1.get('email')?.touched)">
+            <div *ngIf="registerForm1.get('email')?.errors?.['required']">Email is required.</div>
+            <div *ngIf="registerForm1.get('email')?.errors?.['email']">Invalid email format.</div>
+          </div>
+
+          <label>Password:</label>
+          <input type="password" class="form-control" formControlName="password">
+          <div class="alert alert-danger small" *ngIf="registerForm1.get('password')?.invalid && (registerForm1.get('password')?.dirty || registerForm1.get('password')?.touched)">
+            <div *ngIf="registerForm1.get('password')?.errors?.['required']">Password is required.</div>
+            <div *ngIf="registerForm1.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</div>
+          </div>
+
+          <label>Confirm Password:</label>
+          <input type="password" class="form-control" formControlName="confirmPassword">
+          <div class="alert alert-danger small" *ngIf="registerForm1.get('confirmPassword')?.invalid && (registerForm1.get('confirmPassword')?.dirty || registerForm1.get('confirmPassword')?.touched)">
+            <div *ngIf="registerForm1.get('confirmPassword')?.errors?.['required']">Confirm password is required.</div>
+            <div *ngIf="registerForm1.get('confirmPassword')?.errors?.['unMatch']">Passwords do not match.</div>
+          </div><br/><br/>
+
+          <button mat-flat-button color="primary" [disabled]="isNextButtonDisabled"> Next</button>
+        </div>
+      </form>
+    </div>
+    <div *ngIf="step === 2">
+      <h2>Step 2</h2>
+      <hr/>
+      <div class="personal-info">
+
+        <form [formGroup]="registerForm2" (ngSubmit)="onSubmit(2)">
+
+            <div class="form-group dropdown">
+              <label>City:</label>
+              <input #userCity (input)="onValueChange(userCity.value)" type="search" class="form-control dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" formControlName="city">
+              <ul class="dropdown-menu" [ngClass]="(cities && isCityDirty) ? 'show': '' ">
+                <li class="dropdown-item" *ngFor="let city of cities"  (click)="chooseCity(city)">{{city}}</li>
+              </ul>
+              <div class="alert alert-danger small" *ngIf="registerForm2.get('city')?.invalid && (registerForm2.get('city')?.dirty || registerForm2.get('city')?.touched)">
+                <div *ngIf="registerForm2.get('city')?.errors?.['required']">city is required.</div>
+                <div *ngIf="registerForm2.get('city')?.errors?.['minlength']">city must be at least 2 characters long.</div>
+                <div *ngIf="registerForm2.get('city')?.errors?.['notExist']">city not exists.</div>
+              </div>
+            </div>
+
+            <label>Street:</label>
+            <input type="text" class="form-control" formControlName="street">
+            <div class="alert alert-danger small" *ngIf="registerForm2.get('street')?.invalid && (registerForm2.get('street')?.dirty || registerForm2.get('street')?.touched)">
+              <div *ngIf="registerForm2.get('street')?.errors?.['required']">street is required.</div>
+              <div *ngIf="registerForm2.get('street')?.errors?.['minlength']">street must be at least 2 characters long.</div>
+            </div>
+
+            <label>First Name:</label>
+            <input type="text" class="form-control" formControlName="first_name">
+            <div class="alert alert-danger small" *ngIf="registerForm2.get('first_name')?.invalid && (registerForm2.get('first_name')?.dirty || registerForm2.get('first_name')?.touched)">
+              <div *ngIf="registerForm2.get('first_name')?.errors?.['required']">first name is required.</div>
+              <div *ngIf="registerForm2.get('first_name')?.errors?.['minlength']">first name must be at least 2 characters long.</div>
+            </div>
+
+            <label>Last Name:</label>
+            <input type="text" class="form-control" formControlName="last_name">
+            <div class="alert alert-danger small" *ngIf="registerForm2.get('last_name')?.invalid && (registerForm2.get('last_name')?.dirty || registerForm2.get('last_name')?.touched)">
+              <div *ngIf="registerForm2.get('last_name')?.errors?.['required']">last name is required.</div>
+              <div *ngIf="registerForm2.get('last_name')?.errors?.['minlength']">last name must be at least 2 characters long.</div>
+            </div><br/><br/>
+
+            <button mat-flat-button color="primary" [disabled]="isRegisterButtonDisabled">Register</button>
+        </form>
+
+      </div><br/>
+      <button mat-flat-button color="primary" (click)="prev()">Back</button>
+    </div>
+  </div>
+  <a routerLink="/login">
+    <button mat-flat-button color="primary">Back to login</button>
+  </a>
+
+</div>

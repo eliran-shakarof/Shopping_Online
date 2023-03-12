@@ -1,0 +1,27 @@
+<h2 mat-dialog-title>Choose Quantity For {{data.product.name}}</h2>
+<mat-dialog-content class="mat-typography">
+  <div class="the-product">
+    {{data.product.name}} <br>
+    Price: {{data.product.price}}₪<br>
+  </div>
+  <div class="qty">
+    <button mat-mini-fab color="primary" (click)="decreaseQty()" [disabled]="quantity < 2">
+      <mat-icon class="icon-size">remove</mat-icon>
+    </button>
+    <input matInput type="tel" [value]="quantity" (change)="saveQty($event)">
+    <button mat-mini-fab color="primary" (click)="increaseQty()" [disabled]="quantity > 99">
+      <mat-icon class="icon-size">add</mat-icon>
+    </button>
+  </div>
+    <hr/>
+  <div>
+    <img [src]="imageSource">
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button mat-button [mat-dialog-close]="true" (click)="addProd()">Add Product</button>
+</mat-dialog-actions>
+
+
+
